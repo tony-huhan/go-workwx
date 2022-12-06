@@ -1,18 +1,18 @@
 # go-workwx
 
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/xen0n/go-workwx)
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/xen0n/go-workwx)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/xen0n/go-workwx/develop)
-[![Go Report Card](https://goreportcard.com/badge/github.com/xen0n/go-workwx)](https://goreportcard.com/report/github.com/xen0n/go-workwx)
-[![GoDoc](http://godoc.org/github.com/xen0n/go-workwx?status.svg)](http://godoc.org/github.com/xen0n/go-workwx)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/tony-huhan/go-workwx)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/tony-huhan/go-workwx)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/tony-huhan/go-workwx/develop)
+[![Go Report Card](https://goreportcard.com/badge/github.com/tony-huhan/go-workwx)](https://goreportcard.com/report/github.com/tony-huhan/go-workwx)
+[![GoDoc](http://godoc.org/github.com/tony-huhan/go-workwx?status.svg)](http://godoc.org/github.com/tony-huhan/go-workwx)
 
 [**本项目需要您的帮助！**][maintainer-needed]
 
-[maintainer-needed]: https://github.com/xen0n/go-workwx/issues/73
+[maintainer-needed]: https://github.com/tony-huhan/go-workwx/issues/73
 
 ```go
 import (
-    "github.com/xen0n/go-workwx" // package workwx
+    "github.com/tony-huhan/go-workwx" // package workwx
 )
 ```
 
