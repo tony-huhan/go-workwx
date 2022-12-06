@@ -24,8 +24,9 @@ func (h *lowlevelEnvelopeHandler) OnIncomingEnvelope(rx envelope.Envelope) (body
 	if err != nil {
 		return nil, err
 	}
-
-	return h.highlevelHandler.OnIncomingMessage(msg)
+        body, err = h.highlevelHandler.OnIncomingMessage(msg)
+        fmt.Printf("rxMessageHandler body is %v", body)
+	return body,err
 }
 
 type HTTPHandler struct {

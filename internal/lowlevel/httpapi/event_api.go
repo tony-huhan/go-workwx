@@ -25,6 +25,7 @@ func (h *LowlevelHandler) eventHandler(
 		return
 	}
 
+        fmt.Printf("HandleIncomingMsg body msg is %v", body)
 	// signature verification is inside EnvelopeProcessor
 	ev, err := h.ep.HandleIncomingMsg(r.URL, body)
 	if err != nil {
