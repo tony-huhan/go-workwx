@@ -8,7 +8,7 @@ import (
 )
 
 type EnvelopeHandler interface {
-	OnIncomingEnvelope(rx envelope.Envelope) error
+	OnIncomingEnvelope(rx envelope.Envelope) (body []byte, err error)
 }
 
 func (h *LowlevelHandler) eventHandler(
@@ -31,10 +31,21 @@ func (h *LowlevelHandler) eventHandler(
 		return
 	}
 
-	err = h.eh.OnIncomingEnvelope(ev)
+	msg, err := h.eh.OnIncomingEnvelope(ev)
 	if err != nil {
 		rw.WriteHeader(http.StatusInternalServerError)
 		return
+	}
+
+	// if passive msg is not nil ,call inside MakeOutgoingEnvelope
+	// then write to http response
+	if msg != nil {
+		resp, err := h.ep.MakeOutgoingEnvelope(msg)
+		if err != nil {
+			rw.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+		rw.Write(resp)
 	}
 
 	// currently we always return empty 200 responses

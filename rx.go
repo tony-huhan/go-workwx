@@ -10,7 +10,7 @@ import (
 // RxMessageHandler 用来接收消息的接口。
 type RxMessageHandler interface {
 	// OnIncomingMessage 一条消息到来时的回调。
-	OnIncomingMessage(msg *RxMessage) error
+	OnIncomingMessage(msg *RxMessage) ([]byte, error)
 }
 
 type lowlevelEnvelopeHandler struct {
@@ -19,10 +19,10 @@ type lowlevelEnvelopeHandler struct {
 
 var _ httpapi.EnvelopeHandler = (*lowlevelEnvelopeHandler)(nil)
 
-func (h *lowlevelEnvelopeHandler) OnIncomingEnvelope(rx envelope.Envelope) error {
+func (h *lowlevelEnvelopeHandler) OnIncomingEnvelope(rx envelope.Envelope) (body []byte, err error) {
 	msg, err := fromEnvelope(rx.Msg)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	return h.highlevelHandler.OnIncomingMessage(msg)

@@ -15,10 +15,10 @@ type dummyRxMessageHandler struct{}
 var _ workwx.RxMessageHandler = dummyRxMessageHandler{}
 
 // OnIncomingMessage 一条消息到来时的回调。
-func (dummyRxMessageHandler) OnIncomingMessage(msg *workwx.RxMessage) error {
+func (dummyRxMessageHandler) OnIncomingMessage(msg *workwx.RxMessage) ([]byte, error) {
 	// You can do much more!
 	fmt.Printf("incoming message: %s\n", msg)
-	return nil
+	return nil, nil
 }
 
 func main() {
