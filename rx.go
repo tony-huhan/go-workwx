@@ -1,6 +1,7 @@
 package workwx
 
 import (
+        "fmt"
 	"net/http"
 
 	"github.com/tony-huhan/go-workwx/internal/lowlevel/envelope"
