@@ -1,6 +1,7 @@
 package httpapi
 
 import (
+        "fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -36,11 +37,13 @@ func (h *LowlevelHandler) eventHandler(
 		rw.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+        fmt.Printf("OnIncomingEnvelope result msg is %v", msg)
 
 	// if passive msg is not nil ,call inside MakeOutgoingEnvelope
 	// then write to http response
 	if msg != nil {
 		resp, err := h.ep.MakeOutgoingEnvelope(msg)
+                fmt.Printf("MakeOutgoingEnvelope resp is %v", resp)
 		if err != nil {
 			rw.WriteHeader(http.StatusInternalServerError)
 			return
