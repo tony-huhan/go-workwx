@@ -6,6 +6,7 @@ import (
 	"errors"
 	"io"
 	"math/big"
+        "fmt"
 	"net/url"
 	"strconv"
 
@@ -54,6 +55,7 @@ func (p *Processor) HandleIncomingMsg(
 	body []byte,
 ) (Envelope, error) {
 	// xml unmarshal
+        fmt.Printf("%s", string(body))
 	var x xmlRxEnvelope
 	err := xml.Unmarshal(body, &x)
 	if err != nil {
