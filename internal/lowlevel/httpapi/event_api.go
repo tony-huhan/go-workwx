@@ -38,13 +38,14 @@ func (h *LowlevelHandler) eventHandler(
 		rw.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-        fmt.Printf("OnIncomingEnvelope result msg is %v", msg)
+        fmt.Printf("OnIncomingEnvelope result msg is %v\n", string(msg))
 
 	// if passive msg is not nil ,call inside MakeOutgoingEnvelope
 	// then write to http response
 	if msg != nil {
 		resp, err := h.ep.MakeOutgoingEnvelope(msg)
-                fmt.Printf("MakeOutgoingEnvelope resp is %v", resp)
+                // fmt.Printf("MakeOutgoingEnvelope resp is %v\n", resp)
+                fmt.Printf("MakeOutgoingEnvelope resp str is %s\n", string(resp))
 		if err != nil {
 			rw.WriteHeader(http.StatusInternalServerError)
 			return
