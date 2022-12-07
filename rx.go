@@ -26,7 +26,7 @@ func (h *lowlevelEnvelopeHandler) OnIncomingEnvelope(rx envelope.Envelope) (body
 		return nil, err
 	}
         body, err = h.highlevelHandler.OnIncomingMessage(msg)
-        fmt.Printf("rxMessageHandler err is %v\n", err)
+        fmt.Printf("rxMessageHandler err is %v, body string is \n", err, string(body))
 	return body,err
 }
 
